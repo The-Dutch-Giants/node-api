@@ -1,0 +1,31 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "npm run watch & npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "sequelize": "^6.29.3",
+    "sequelize-typescript": "^2.1.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.3",
+    "@types/pg": "^8.6.6",
+    "@types/sequelize": "^4.28.14",
+    "typescript": "^4.9.5"
+  }
+}
