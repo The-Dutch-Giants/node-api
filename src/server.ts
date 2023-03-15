@@ -4,6 +4,8 @@ import cors from 'cors';
 import { Sequelize } from 'sequelize-typescript';
 import Users from './models/userModel';
 
+require('dotenv').config()
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -13,15 +15,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const sequelize = new Sequelize({
-    host: 'https://sql.hosted.hro.nl',
-    database: 'prj_2022_2023_mlab1_vh_t5',
+    host: process.env.HOST,
+    database: process.env.DBNAME,
     dialect: 'mysql',
-    username: 'prj_2022_2023_mlab1_vh_t5',
-    password: 'eichahku',
+    port: 3306,
+    username: process.env.DBUSERNAME,
+    password: process.env.DBPASSWORD,
     models: [__dirname + '/models'],
   });
 
 sequelize.addModels([__dirname + '/**/*.model.ts']);
+sequelize.authenticate().then(()=> {
+    console.log("db connected")
+}).catch((err) => console.log(err))
 
 // Start server
 app.listen(port, () => {
