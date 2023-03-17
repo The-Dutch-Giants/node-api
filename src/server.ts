@@ -25,9 +25,9 @@ const sequelize = new Sequelize({
   });
 
 sequelize.addModels([__dirname + '/**/*.model.ts']);
-sequelize.authenticate().then(()=> {
-    console.log("db connected")
-}).catch((err) => console.log(err))
+// sequelize.authenticate().then(()=> {
+//     console.log("db connected")
+// }).catch((err) => console.log(err))
 
 // Start server
 app.listen(port, () => {
@@ -42,6 +42,11 @@ app.get('/', (req, res) => {
 app.get('/users', async (req, res) => {
     const users = await Users.findAll()
     res.send(users)
+})
+
+app.get('/receiveAuthCode', async (req, res) => {
+    console.log(req)
+    console.log(res)
 })
 
 

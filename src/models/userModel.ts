@@ -1,5 +1,5 @@
 // import { Sequelize, DataType} from 'sequelize-typescript';
-import { Table, Column, Model, HasMany, PrimaryKey, DataType, AutoIncrement } from 'sequelize-typescript';
+import { Table, Column, Model, PrimaryKey, DataType, AutoIncrement } from 'sequelize-typescript';
 
 @Table
 export default class Users extends Model {
@@ -8,7 +8,7 @@ export default class Users extends Model {
     @Column(DataType.NUMBER) 
     id: number;
 
-    @Column(DataType.TEXT)
+    @Column(DataType.STRING(255))
     name: string;
 
     @Column(DataType.NUMBER)
